@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="navy">#2D3D4F</color>
+
+    <color name="pokemon_background">#E5F6FF</color> <!-- Biru muda -->
+    <color name="pokemon_red">#FF1C1C</color>         <!-- Merah -->
+    <color name="pokemon_blue">#0073E6</color>       <!-- Biru -->
+    <color name="pokemon_yellow">#FFCC00</color>     <!-- Kuning -->
+
+</resources>

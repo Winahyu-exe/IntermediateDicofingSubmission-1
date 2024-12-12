@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">LoginWithAnimation</string>
+    <string name="signup">Daftar</string>
+    <string name="login">Masuk</string>
+    <string name="message_welcome_page">Lets chronicle your Pokémon adventures.</string>
+    <string name="title_welcome_page">Start Your Journey</string>
+    <string name="title_signup_page">Fill in your personal information</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="message_login_page">Fill your email and password</string>
+    <string name="title_login_page">Ready to catch your pokemon?</string>
+    <string name="name">Name</string>
+    <string name="message_main_page">Enjoy your Pokémon adventures</string>
+    <string name="greeting">Halo %1$s,</string>
+    <string name="logout">Keluar</string>
+    <string name="welcome_image_desc">pokemonwolcomepicture</string>
+    <string name="pikachu_image">Pikachu Image</string>
+</resources>
