@@ -1,5 +1,6 @@
 package com.dicoding.picodiploma.loginwithanimation.view.main
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
@@ -34,8 +35,10 @@ class StoryAdapter : ListAdapter<ListStoryItem, StoryAdapter.StoryViewHolder>(St
     // Mengikat data ke ViewHolder
     override fun onBindViewHolder(holder: StoryViewHolder, position: Int) {
         val story = getItem(position)
+        Log.d("StoryAdapter", "Binding story: $story")
         holder.bind(story)
     }
+
 }
 
 // DiffCallback untuk membandingkan data cerita

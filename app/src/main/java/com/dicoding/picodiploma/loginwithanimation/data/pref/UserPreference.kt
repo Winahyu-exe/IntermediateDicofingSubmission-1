@@ -32,6 +32,12 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
         }
     }
 
+    // Function to get the token directly from DataStore
+    suspend fun getToken(): String {
+        val preferences = dataStore.data.first() // First will get the value of the Flow
+        return preferences[TOKEN_KEY] ?: "" // Return token or empty string if null
+    }
+
     // Function to get UserModel directly (getting the first value from Flow)
     suspend fun getUserModel(): UserModel {
         return getSession().map { it }.first()

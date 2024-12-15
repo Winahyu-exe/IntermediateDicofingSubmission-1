@@ -6,6 +6,7 @@ import com.dicoding.picodiploma.loginwithanimation.data.remote.response.LoginRes
 import com.dicoding.picodiploma.loginwithanimation.data.remote.response.StoryResponse
 import com.dicoding.picodiploma.loginwithanimation.data.remote.retrofit.ApiService
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.firstOrNull
 
 class UserRepository private constructor(
     private val userPreference: UserPreference,
@@ -53,10 +54,10 @@ class UserRepository private constructor(
 
     // Method to get the user token from UserPreference
     suspend fun getUserToken(): String {
-        // Get the UserModel from UserPreference asynchronously
-        val userModel = userPreference.getUserModel()  // Assuming this method returns the UserModel
-        return userModel.token  // Assuming UserModel has a 'token' property
+        val userModel = userPreference.getSession().firstOrNull() ?: throw IllegalStateException("No user session available")
+        return userModel.token ?: throw IllegalStateException("Token is null")
     }
+
 
     companion object {
         @Volatile

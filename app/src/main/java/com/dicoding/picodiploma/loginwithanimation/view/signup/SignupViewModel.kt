@@ -57,7 +57,8 @@ class SignupViewModel : ViewModel() {
         _isLoading.value = true
         viewModelScope.launch {
             try {
-                val response = ApiConfig.getApiService().register(name, email, password)
+                // Pass an empty token because registration does not need a valid token
+                val response = ApiConfig.getApiService("").register(name, email, password)
                 if (response.error == true) {
                     _errorMessage.value = response.message ?: "Terjadi kesalahan"
                 } else {
@@ -78,4 +79,5 @@ class SignupViewModel : ViewModel() {
             }
         }
     }
+
 }

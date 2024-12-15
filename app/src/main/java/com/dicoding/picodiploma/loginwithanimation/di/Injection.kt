@@ -12,20 +12,20 @@ val Context.dataStore by preferencesDataStore(name = "user_preferences")
 
 object Injection {
 
-    // Provide the ApiService instance
+    // Provide the ApiService instance with token
     fun provideApiService(token: String): ApiService {
-        return ApiConfig.getApiService(token)  // Using the token to initialize ApiService
+        return ApiConfig.getApiService(token)
     }
 
     // Provide the UserRepository instance
     suspend fun provideRepository(context: Context): UserRepository {
         // Get the instance of UserPreference
-        val pref = UserPreference.getInstance(context.dataStore)  // Pass the dataStore to get the instance
+        val pref = UserPreference.getInstance(context.dataStore)
 
         // Get the UserModel asynchronously
-        val userModel = pref.getUserModel() // Assuming getUserModel() already handles suspending internally
+        val userModel = pref.getUserModel()
 
-        // Initialize ApiService with the token from UserModel
+        // Create ApiService with the token from UserModel
         val apiService = provideApiService(userModel.token)
 
         // Return the UserRepository instance

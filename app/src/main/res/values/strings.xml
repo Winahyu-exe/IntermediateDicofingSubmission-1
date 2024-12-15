@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">LoginWithAnimation</string>
     <string name="signup">Daftar</string>
@@ -15,4 +16,11 @@
     <string name="logout">Keluar</string>
     <string name="welcome_image_desc">pokemonwolcomepicture</string>
     <string name="pikachu_image">Pikachu Image</string>
+    <string name="image_placeholder_text">image</string>
+    <string name="camera_text">Camera Button</string>
+    <string name="gallery">Gallery</string>
+    <string name="upload">Upload</string>
+    <string name="description">description</string>
+    <string name="image_placeholder">gambar</string>
+    <string name="camera">Camera</string>
 </resources>

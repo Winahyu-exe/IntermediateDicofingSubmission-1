@@ -9,26 +9,25 @@ import retrofit2.converter.gson.GsonConverterFactory
 object ApiConfig {
     private const val BASE_URL = "https://story-api.dicoding.dev/v1/"
 
-    fun getApiService(token: String? = null): ApiService {
+    // Fungsi untuk mendapatkan ApiService dengan token
+    fun getApiService(token: String): ApiService {
         val clientBuilder = OkHttpClient.Builder()
 
-        // Tambahkan interceptor hanya jika token tersedia
-        if (!token.isNullOrEmpty()) {
-            val authInterceptor = Interceptor { chain ->
-                val req = chain.request()
-                val requestHeaders = req.newBuilder()
-                    .addHeader("Authorization", "Bearer $token")
-                    .build()
-                chain.proceed(requestHeaders)
-            }
-            clientBuilder.addInterceptor(authInterceptor)
+        // Tambahkan Interceptor untuk Authorization
+        val authInterceptor = Interceptor { chain ->
+            val req = chain.request()
+            val requestHeaders = req.newBuilder()
+                .addHeader("Authorization", "Bearer $token")
+                .build()
+            chain.proceed(requestHeaders)
         }
+        clientBuilder.addInterceptor(authInterceptor)
 
-        // Logging interceptor untuk debugging
+        // Logging Interceptor
         val loggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
         clientBuilder.addInterceptor(loggingInterceptor)
 
-        // Bangun instance Retrofit
+        // Bangun Retrofit
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())

@@ -2,4 +2,7 @@
 <resources>
     <string name="welcome_image_desc">pokemonwolcomepicture</string>
     <string name="pikachu_image">Pikachu Image</string>
+    <string name="gallery">Gallery</string>
+    <string name="upload">Upload\n</string>
+    <string name="description">description</string>
 </resources>
